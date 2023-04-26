@@ -170,3 +170,7 @@
   background-color: #48bb78;
   clip-path: polygon(50% 0%, 100% 0, 100% 60%, 100%80%, 20% 100%, 0 67%, 0 0);
 }
+.eventspage-card-images {
+  -webkit-clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0% 100%);
+  clip-path: polygon(0 1%, 100% 0%, 100% 90%, 0% 100%);
+}

@@ -140,14 +140,17 @@ export const EventsPage = () => {
                   transition="transform .2s ease-out"
                   _hover={{ transform: "scale(1.05)" }}
                 >
-                  <Image
-                    h="350px"
-                    src={event.image}
-                    alt={event.title}
-                    fit="cover"
-                    overflow="hidden"
-                    borderTopRadius="lg"
-                  />
+                  <div className="eventspage-card-images">
+                    <Image
+                      w="100%"
+                      h="350px"
+                      src={event.image}
+                      alt={event.title}
+                      fit="cover"
+                      overflow="hidden"
+                      borderTopRadius="lg"
+                    />
+                  </div>
                   <Stack p={4}>
                     <Heading size="md">{event.title}</Heading>
                     <Text>{event.description}</Text>
