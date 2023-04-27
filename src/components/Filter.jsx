@@ -8,15 +8,16 @@ export default function Filter({
   return (
     <div>
       <div className="filter-container">
-        <Input
-          type="search"
-          placeholder="Search for Events"
-          mt="2rem"
-          mb="2rem"
-          onChange={(e) => setSearchValue(e.target.value)}
-          value={searchValue}
-        />
-
+        <label>
+          <Input
+            type="search"
+            placeholder="Search for Events"
+            mt="2rem"
+            mb="2rem"
+            onChange={(e) => setSearchValue(e.target.value)}
+            value={searchValue}
+          />
+        </label>
         <Button
           colorScheme="yellow"
           m=".2rem"
