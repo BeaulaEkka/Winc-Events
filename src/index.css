@@ -178,3 +178,6 @@
   color: orange;
   font-weight: 500;
 }
+.active {
+  color: #74e5a3;
+}

@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../index.css";
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, Box } from "@chakra-ui/react";
 
 export const Navigation = () => {
   return (
     <nav className="header-nav">
       <div className="nav-contents">
-        <div className="logo-header">
+        <Box className="logo-header">
           <Text
             fontSize="sm"
             mb="-1rem"
@@ -17,29 +17,39 @@ export const Navigation = () => {
           >
             EVENTS
           </Text>
-          <Link to="/">
-            <Heading
-              colorScheme="white"
-              p=".5rem"
-              color="white"
-              _hover={{ fontSize: "2rem", color: "orange" }}
-            >
-              \ WINC /
-            </Heading>{" "}
-          </Link>
-        </div>
+          <Heading
+            colorScheme="white"
+            p=".5rem"
+            color="white"
+            _hover={{ color: "orange" }}
+          >
+            <NavLink to="/" as={Link} activeclassname="active">
+              \ WINC /{" "}
+            </NavLink>
+          </Heading>{" "}
+        </Box>
 
         <div className="nav-links">
           <ul>
             <li>
-              <Link className="header-nav-link" to="/">
+              <NavLink
+                as={Link}
+                className="header-nav-link"
+                to="/"
+                activeclassname="active"
+              >
                 Events
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="header-nav-link" to="/about">
+              <NavLink
+                className="header-nav-link"
+                activeclassname="active"
+                as={Link}
+                to="/about"
+              >
                 About
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
