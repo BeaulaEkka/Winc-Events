@@ -174,3 +174,7 @@
   -webkit-clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0% 100%);
   clip-path: polygon(0 1%, 100% 0%, 100% 90%, 0% 100%);
 }
+.header-nav-link:hover {
+  color: orange;
+  font-weight: 500;
+}

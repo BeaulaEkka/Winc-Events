@@ -18,7 +18,12 @@ export const Navigation = () => {
             EVENTS
           </Text>
           <Link to="/">
-            <Heading colorScheme="white" p=".5rem" color="white">
+            <Heading
+              colorScheme="white"
+              p=".5rem"
+              color="white"
+              _hover={{ fontSize: "2rem", color: "orange" }}
+            >
               \ WINC /
             </Heading>{" "}
           </Link>
