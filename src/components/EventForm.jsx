@@ -117,6 +117,7 @@ export const EventForm = ({ onSubmit, initialValues }) => {
           onChange={handleCheckboxChange}
           name="categoryIds"
           value={1}
+          mr=".5rem"
         >
           Sports
         </Checkbox>
