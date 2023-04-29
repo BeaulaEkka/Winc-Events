@@ -171,12 +171,12 @@ export const EventPage = () => {
           <div className="eventpage-links">
             <Button
               mt="2rem"
-              colorScheme="blue"
+              colorScheme="green"
               onClick={() => setIsModalOpen(true)}
             >
               Edit
             </Button>
-            <Button mt="2rem" mb="2rem" colorScheme="blue" onClick={onOpen}>
+            <Button mt="2rem" mb="2rem" colorScheme="red" onClick={onOpen}>
               Delete
             </Button>
             <Link to="/" className="back-link">
