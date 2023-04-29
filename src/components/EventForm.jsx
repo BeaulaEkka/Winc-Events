@@ -11,6 +11,14 @@ import {
 
 export const EventForm = ({ onSubmit, initialValues }) => {
   const [values, setValues] = useState(initialValues || {});
+  const [isChecked, setIsChecked] = useState(() => {
+    // Set default isChecked values based on initialValues
+    const defaultIsChecked = {};
+    initialValues?.categoryIds?.forEach((id) => {
+      defaultIsChecked[id] = true;
+    });
+    return defaultIsChecked;
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,8 +42,60 @@ export const EventForm = ({ onSubmit, initialValues }) => {
     }
   };
 
+  // const handleCheckboxChange = (event) => {
+  //   const { name, value, isChecked } = event.target;
+  //   setIsChecked((prevChecked) => ({
+  //     ...prevChecked,
+  //     // [value]: event.target.checked,
+  //     [value]: !prevChecked[value],
+  //   }));
+  //   setValues((prevValues) => {
+  //     let updatedValues = { ...prevValues };
+  //     if (Array.isArray(prevValues[name])) {
+  //       if (isChecked[value] !== undefined && isChecked[value]) {
+  //         updatedValues[name] = [...prevValues[name], Number(value)];
+  //       } else {
+  //         updatedValues[name] = prevValues[name].filter(
+  //           (val) => val !== Number(value)
+  //         );
+  //       }
+  //     } else {
+  //       updatedValues[name] = [Number(value)];
+  //     }
+  //     console.log("updatedValues", updatedValues);
+  //     return updatedValues;
+  //   });
+  // };
+  // const handleCheckboxChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setIsChecked((prevChecked) => ({
+  //     ...prevChecked,
+  //     [value]: !event.target.checked,
+  //   }));
+  //   setValues((prevValues) => {
+  //     let updatedValues = { ...prevValues };
+  //     if (Array.isArray(prevValues[name])) {
+  //       if (event.target.checked) {
+  //         updatedValues[name] = [...prevValues[name], Number(value)];
+  //       } else {
+  //         updatedValues[name] = prevValues[name].filter(
+  //           (val) => val !== Number(value)
+  //         );
+  //       }
+  //     } else {
+  //       updatedValues[name] = [Number(value)];
+  //     }
+  //     console.log("updatedValues", updatedValues);
+  //     return updatedValues;
+  //   });
+  // };
+
   const handleCheckboxChange = (event) => {
     const { name, value, checked } = event.target;
+    setIsChecked((prevChecked) => ({
+      ...prevChecked,
+      [value]: checked,
+    }));
     setValues((prevValues) => {
       let updatedValues = { ...prevValues };
       if (Array.isArray(prevValues[name])) {
@@ -113,8 +173,10 @@ export const EventForm = ({ onSubmit, initialValues }) => {
       <FormControl>
         <FormLabel>Category</FormLabel>
         <Checkbox
-          checked={values.categoryIds && values.categoryIds.includes(1)}
+          // checked={values.categoryIds && values.categoryIds.includes(1)}
+          isChecked={isChecked[1]}
           onChange={handleCheckboxChange}
+          // onChange={(event) => handleCheckboxChange(event, isChecked)}
           name="categoryIds"
           value={1}
           mr=".5rem"
@@ -122,7 +184,7 @@ export const EventForm = ({ onSubmit, initialValues }) => {
           Sports
         </Checkbox>
         <Checkbox
-          checked={values.categoryIds && values.categoryIds.includes(2)}
+          isChecked={isChecked[2]}
           onChange={handleCheckboxChange}
           name="categoryIds"
           value={2}
