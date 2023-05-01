@@ -1,26 +1,12 @@
 import React from "react";
 import { useToast, useDisclosure } from "@chakra-ui/react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  Text,
-  Heading,
-  Button,
-  Image,
-  Tag,
-  Box,
-} from "@chakra-ui/react";
+import { Text, Heading, Button, Image, Tag, Box } from "@chakra-ui/react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-
 import { useParams, Link } from "react-router-dom";
 import "../index.css";
-import { EventForm } from "../components/EventForm";
 import { useState, useRef } from "react";
 import AlertBox from "../components/AlertBox";
+import EditEventModal from "../components/EditEventModal";
 
 // export const loader = async ({ params }) => {
 //   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
@@ -211,21 +197,12 @@ export const EventPage = () => {
           onClose={onClose}
         />
       </Box>
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        style={{ height: "auto" }}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Edit Event</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <EventForm initialValues={event} onSubmit={handleSave} />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+      <EditEventModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        handleSave={handleSave}
+        event={event}
+      />
     </div>
   );
 };

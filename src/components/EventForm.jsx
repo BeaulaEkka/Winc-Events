@@ -8,6 +8,7 @@ import {
   Checkbox,
   FormHelperText,
 } from "@chakra-ui/react";
+import EditEventModal from "./EditEventModal";
 
 export const EventForm = ({ onSubmit, initialValues }) => {
   const [values, setValues] = useState(initialValues || {});
@@ -19,8 +20,8 @@ export const EventForm = ({ onSubmit, initialValues }) => {
     return defaultIsChecked;
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onSubmit(values);
   };
 
@@ -159,6 +160,7 @@ export const EventForm = ({ onSubmit, initialValues }) => {
       <Button mt={4} colorScheme="blue" type="submit">
         Save
       </Button>
+      <EditEventModal event={values} />
     </form>
   );
 };
