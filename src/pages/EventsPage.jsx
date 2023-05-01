@@ -32,8 +32,13 @@ import { EventForm } from "../components/EventForm";
 import { useState } from "react";
 
 export const loader = async () => {
-  const events = await fetch("http://localhost:3000/events");
-  const categories = await fetch("http://localhost:3000/categories");
+  // const events = await fetch("http://localhost:3000/events");
+  // const categories = await fetch("http://localhost:3000/categories");
+  // return { events: await events.json(), categories: await categories.json() };
+  const events = await fetch("https://mock-winc-events.onrender.com/events");
+  const categories = await fetch(
+    "https://mock-winc-events.onrender.com/categories"
+  );
   return { events: await events.json(), categories: await categories.json() };
 };
 
@@ -61,15 +66,18 @@ export const EventsPage = () => {
   const handleCreate = async (values) => {
     const { categoryIds, ...rest } = values;
     try {
-      const response = await fetch(`http://localhost:3000/events`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...rest,
-          categoryIds: categoryIds,
-          createdBy: parseInt(values.createdBy),
-        }),
-      });
+      const response = await fetch(
+        `https://mock-winc-events.onrender.com/events`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...rest,
+            categoryIds: categoryIds,
+            createdBy: parseInt(values.createdBy),
+          }),
+        }
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

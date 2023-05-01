@@ -27,11 +27,20 @@ import "../index.css";
 import { EventForm } from "../components/EventForm";
 import { useState, useRef } from "react";
 
+// export const loader = async ({ params }) => {
+//   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
+//   const users = await fetch("http://localhost:3000/users");
+//   const categories = await fetch("http://localhost:3000/categories");
 export const loader = async ({ params }) => {
-  const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
-  const users = await fetch("http://localhost:3000/users");
+  const event = await fetch(
+    `https://mock-winc-events.onrender.com/events/${params.eventId}`
+  );
 
-  const categories = await fetch("http://localhost:3000/categories");
+  const users = await fetch("https://mock-winc-events.onrender.com/users");
+
+  const categories = await fetch(
+    "https://mock-winc-events.onrender.com/categories"
+  );
 
   return {
     event: await event.json(),
