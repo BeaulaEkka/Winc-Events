@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
+import { useDisclosure, useToast } from "@chakra-ui/react";
 
 import {
   Card,
@@ -28,7 +19,8 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import Filter from "../components/Filter";
-import { EventForm } from "../components/EventForm";
+import AddNewEventModal from "../components/AddNewEventModal";
+
 import { useState } from "react";
 
 export const loader = async () => {
@@ -48,8 +40,9 @@ export const EventsPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchParams, setsearchParams] = useSearchParams();
   const toast = useToast();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onOpen, onClose } = useDisclosure();
 
   const categoryIdsFilter = searchParams.getAll("categoryIds");
 
@@ -196,19 +189,12 @@ export const EventsPage = () => {
             </Box>
           ))}
       </Flex>
-      <Button mt="2rem" colorScheme="blue" onClick={onOpen}>
-        Add New Event
-      </Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader color="blue.500">Add New Event</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <EventForm onSubmit={handleCreate} />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+
+      <AddNewEventModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        handleCreate={handleCreate}
+      />
     </div>
   );
 };

@@ -31,6 +31,7 @@ import { useState, useRef } from "react";
 //   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
 //   const users = await fetch("http://localhost:3000/users");
 //   const categories = await fetch("http://localhost:3000/categories");
+
 export const loader = async ({ params }) => {
   const event = await fetch(
     `https://mock-winc-events.onrender.com/events/${params.eventId}`
@@ -185,7 +186,14 @@ export const EventPage = () => {
             >
               Edit
             </Button>
-            <Button mt="2rem" mb="2rem" colorScheme="red" onClick={onOpen}>
+            <Button
+              mt="2rem"
+              mb="2rem"
+              colorScheme="red"
+              color="white"
+              onClick={onOpen}
+              _hover={{ bg: "red.700", color: "white" }}
+            >
               Delete
             </Button>
             <Link to="/" className="back-link">
