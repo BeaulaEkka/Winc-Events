@@ -7,12 +7,6 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogOverlay,
   Text,
   Heading,
   Button,
@@ -26,6 +20,7 @@ import { useParams, Link } from "react-router-dom";
 import "../index.css";
 import { EventForm } from "../components/EventForm";
 import { useState, useRef } from "react";
+import AlertBox from "../components/AlertBox";
 
 // export const loader = async ({ params }) => {
 //   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
@@ -60,9 +55,12 @@ export const EventPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleDelete = async () => {
-    await fetch(`http://localhost:3000/events/${params.eventId}`, {
-      method: "DELETE",
-    });
+    await fetch(
+      `https://mock-winc-events.onrender.com/events/${params.eventId}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     navigate("/");
     onClose();
@@ -78,15 +76,18 @@ export const EventPage = () => {
   const handleSave = async (values) => {
     try {
       const { categoryIds, ...rest } = values;
-      await fetch(`http://localhost:3000/events/${params.eventId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...rest,
-          categoryIds: categoryIds,
-          createdBy: parseInt(values.createdBy),
-        }),
-      });
+      await fetch(
+        `https://mock-winc-events.onrender.com/events/${params.eventId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...rest,
+            categoryIds: categoryIds,
+            createdBy: parseInt(values.createdBy),
+          }),
+        }
+      );
       navigate("/");
       toast({
         title: "Event Updated.",
@@ -203,27 +204,12 @@ export const EventPage = () => {
             </Link>
           </div>
         </div>
-        <AlertDialog
+        <AlertBox
           isOpen={isOpen}
+          handleDelete={handleDelete}
+          cancelRef={cancelRef}
           onClose={onClose}
-          leastDestructiveRef={cancelRef}
-        >
-          <AlertDialogOverlay />
-          <AlertDialogContent>
-            <AlertDialogHeader>Delete Event</AlertDialogHeader>
-            <AlertDialogBody>
-              Are you sure you want to delete this event?
-            </AlertDialogBody>
-            <AlertDialogFooter>
-              <Button ref={cancelRef} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme="red" onClick={handleDelete} ml={3}>
-                Delete
-              </Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
+        />
       </Box>
 
       <Modal

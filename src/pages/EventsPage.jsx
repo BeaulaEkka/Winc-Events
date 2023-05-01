@@ -40,9 +40,8 @@ export const EventsPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchParams, setsearchParams] = useSearchParams();
   const toast = useToast();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const categoryIdsFilter = searchParams.getAll("categoryIds");
 
@@ -191,9 +190,9 @@ export const EventsPage = () => {
       </Flex>
 
       <AddNewEventModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
         handleCreate={handleCreate}
+        isOpen={isOpen}
+        onClose={onClose}
       />
     </div>
   );
