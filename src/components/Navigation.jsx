@@ -38,6 +38,16 @@ export const Navigation = () => {
                 to="/"
                 activeclassname="active"
               >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                as={Link}
+                className="header-nav-link"
+                to="/events"
+                activeclassname="active"
+              >
                 Events
               </NavLink>
             </li>
