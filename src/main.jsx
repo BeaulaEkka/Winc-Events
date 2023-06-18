@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./components/Root";
 import ErrorPage from "./error-page";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         loader: eventsLoader,
       },
       {
-        path: "/event/:eventId",
+        path: "events/event/:eventId",
         element: <EventPage />,
         loader: eventLoader,
         // action: addComment,
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

@@ -48,7 +48,7 @@ export const EventPage = () => {
       }
     );
 
-    navigate("/");
+    navigate("/events");
     onClose();
     toast({
       title: "Event was Successfully Deleted.",
@@ -74,7 +74,7 @@ export const EventPage = () => {
           }),
         }
       );
-      navigate("/");
+      navigate("/events");
       toast({
         title: "Event Updated.",
         status: "success",
@@ -183,7 +183,7 @@ export const EventPage = () => {
             >
               Delete
             </Button>
-            <Link to="/" className="back-link">
+            <Link to="/events" className="back-link">
               <Text mb="2rem" as="ins" color="blue.500">
                 Back to Events
               </Text>

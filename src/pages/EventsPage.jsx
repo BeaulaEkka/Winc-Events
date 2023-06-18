@@ -74,7 +74,7 @@ export const EventsPage = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       onClose();
-      navigate("/");
+      navigate("/events");
       toast({
         title: "Event Created.",
         description: "We've created a new Event for you.",

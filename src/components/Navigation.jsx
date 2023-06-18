@@ -61,6 +61,16 @@ export const Navigation = () => {
                 About
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className="header-nav-link"
+                activeclassname="active"
+                as={Link}
+                to="/contact"
+              >
+                Contact
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

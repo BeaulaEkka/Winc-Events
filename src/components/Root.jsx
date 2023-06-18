@@ -9,7 +9,7 @@ export const Root = () => {
     <Box>
       <Navigation />
       <Outlet />
-      <Footer />
+      <Footer position="absolute" bottom={0} width="100%" />
     </Box>
   );
 };

@@ -181,3 +181,38 @@
 .active {
   color: #74e5a3;
 }
+
+.home-hero img {
+  background-color: #48bb78;
+  clip-path: polygon(100% 0, 100% 74%, 15% 90%, 0 76%, 0 0);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.home_hero_text {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  color: white;
+  line-height: 0.7;
+}
+.home_hero_text h1 {
+  font-size: clamp(1.5rem, 0.8rem + 3.5vw, 5rem);
+  font-weight: 700;
+}
+.home-hero2 img {
+  position: absolute;
+  top: 0;
+  clip-path: polygon(100% 0, 100% 20%, 15% 90%, 0 76%, 0 0);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.home-hero3 img {
+  position: absolute;
+  top: 0;
+  clip-path: polygon(100% 0, 100% -665%, 15% 90%, 0 76%, 0 0);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
