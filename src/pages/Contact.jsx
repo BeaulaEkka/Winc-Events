@@ -17,9 +17,10 @@ const Contact = () => {
           <Text>The Netherlands</Text>
           <Heading mt="2rem">Contact :</Heading>{" "}
           <Text color="gray.600">
-            <Text mt="2rem">+31 (0)12 34 56 789</Text>
-            info@mockwebsite.nl VAT number NL: 1234.56.789.B01 Chamber of
-            Commerce (KvK) Mocktown 98765432
+            <Text mt="2rem">Mobile</Text>
+            <Text>+31 (0)12 34 56 789</Text>
+            info@mockwebsite.nl <Text> VAT number NL: 1234.56.789.B01 </Text>
+            Chamber of Commerce (KvK) Mocktown 98765432
           </Text>
           <Text fontSize="1.5rem">
             <br></br>Join us and let us make every moment count!

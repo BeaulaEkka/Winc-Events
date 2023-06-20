@@ -8,13 +8,7 @@ const Home = () => {
       <Box position="relative" h="100vh" border="1px solid red">
         <div className="home-hero">
           <img
-            src="https://images.pexels.com/photos/217872/pexels-photo-217872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt="music festival"
-          ></img>
-        </div>
-        <div className="home-hero2">
-          <img
-            src="https://images.pexels.com/photos/3027216/pexels-photo-3027216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="music festival"
           ></img>
         </div>

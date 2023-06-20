@@ -1,34 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../index.css";
-import { Heading, Text, Box } from "@chakra-ui/react";
+import { Heading, Text, Box, Image } from "@chakra-ui/react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import NavMobile from "./NavMobile";
+import { CgClose } from "react-icons/cg";
 
 export const Navigation = () => {
+  const [open, setOpen] = useState(false);
+  const closeMobileMenu = () => setOpen(false);
   return (
     <nav className="header-nav">
       <div className="nav-contents">
-        <Box className="logo-header">
-          <Text
-            fontSize="sm"
-            mb="-1rem"
-            ml="1.8rem"
-            letterSpacing=".7rem"
-            color="white"
-          >
-            EVENTS
-          </Text>
-          <Heading
-            colorScheme="white"
-            p=".5rem"
-            color="white"
-            _hover={{ color: "orange" }}
-          >
-            <NavLink to="/" as={Link} activeclassname="active">
-              \ WINC /{" "}
-            </NavLink>
-          </Heading>{" "}
-        </Box>
-
+        <NavLink to="/" as={Link} activeclassname="active">
+          <Image src="/assets/wincsvglogo.svg" w="6.2rem" />
+          <wincsvglogo />
+        </NavLink>
         <div className="nav-links">
           <ul>
             <li>
@@ -72,6 +59,25 @@ export const Navigation = () => {
               </NavLink>
             </li>
           </ul>
+        </div>
+        <div className="nav-hamburger-menu">
+          {open ? (
+            <CgClose
+              color="white"
+              fontSize={32}
+              onClick={() => setOpen(!open)}
+            />
+          ) : (
+            <GiHamburgerMenu
+              color="white"
+              fontSize={32}
+              onClick={() => setOpen(!open)}
+            />
+          )}
+          {open && (
+            <NavMobile isMobile={true} closeMobileMenu={closeMobileMenu} />
+          )}
+          {}
         </div>
       </div>
     </nav>
