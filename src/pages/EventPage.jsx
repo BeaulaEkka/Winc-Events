@@ -7,6 +7,7 @@ import "../index.css";
 import { useState, useRef } from "react";
 import AlertBox from "../components/AlertBox";
 import EditEventModal from "../components/EditEventModal";
+import moment from "moment";
 
 // export const loader = async ({ params }) => {
 //   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
@@ -137,11 +138,15 @@ export const EventPage = () => {
               <Text fontSize="xl" as="b">
                 Start Time:
               </Text>
-              <Text>{event.startTime}</Text>
+              <Text>
+                {moment(event.startTime).format("MMM Do YYYY, h:mm a")}
+              </Text>
               <Text fontSize="xl" as="b">
                 End Time:
               </Text>
-              <Text>{event.endTime}</Text>
+              <Text>
+                {moment(event.startTime).format("MMM Do YYYY, h:mm a")}
+              </Text>
             </div>
             <div>
               <div className="eventpage-createdby">

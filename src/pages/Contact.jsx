@@ -12,19 +12,23 @@ const Contact = () => {
       </div>
       <div className="about-text">
         <Heading className="about-welcome-text"> Contact Information</Heading>
-        <Text fontSize="1.1rem" mt="1.5rem" color="gray.600">
+        <Text
+          mt="1.5rem"
+          color="gray.600"
+          lineHeight={7}
+          fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
+        >
           Address: Blue Street 123 <Text>1234 AB Mocktown</Text>
           <Text>The Netherlands</Text>
           <Heading mt="2rem">Contact :</Heading>{" "}
           <Text color="gray.600">
-            <Text mt="2rem">Mobile</Text>
-            <Text>+31 (0)12 34 56 789</Text>
+            <Text mt="2rem">+31 (0)12 34 56 789</Text>
             info@mockwebsite.nl <Text> VAT number NL: 1234.56.789.B01 </Text>
-            Chamber of Commerce (KvK) Mocktown 98765432
+            Chamber of Commerce (KvK) <Text>Mocktown 9876XC</Text>
           </Text>
-          <Text fontSize="1.5rem">
-            <br></br>Join us and let us make every moment count!
-          </Text>
+          <Heading mt="2rem">
+            Join us and let us make every moment count!
+          </Heading>
         </Text>
         <div className="about-salesbox">
           <Heading>The World is waiting.</Heading>{" "}

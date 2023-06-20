@@ -19,28 +19,32 @@ export default function Filter({
           />
         </label>
         <Button
-          colorScheme="yellow"
+          bg="yellow.400"
           m=".2rem"
+          color="white"
           onClick={() => setsearchParams({})}
         >
           All
         </Button>
         <Button
-          colorScheme="green"
+          bg="green.500"
+          color="white"
           m=".2rem"
           onClick={() => setsearchParams({ categoryIds: [1] })}
         >
           Sports
         </Button>
         <Button
-          colorScheme="blue"
+          bg="blue.500"
+          color="white"
           m=".2rem"
           onClick={() => setsearchParams({ categoryIds: [2] })}
         >
           Games
         </Button>
         <Button
-          colorScheme="purple"
+          bg="blue.300"
+          color="white"
           m=".2rem"
           onClick={() => setsearchParams({ categoryIds: [1, 2] })}
         >

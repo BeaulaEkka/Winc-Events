@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../index.css";
-import { Heading, Text, Box, Image } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import NavMobile from "./NavMobile";
 import { CgClose } from "react-icons/cg";
@@ -14,7 +14,6 @@ export const Navigation = () => {
       <div className="nav-contents">
         <NavLink to="/" as={Link} activeclassname="active">
           <Image src="/assets/wincsvglogo.svg" w="6.2rem" />
-          <wincsvglogo />
         </NavLink>
         <div className="nav-links">
           <ul>

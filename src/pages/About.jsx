@@ -11,30 +11,35 @@ export default function Home() {
         ></img>
       </div>
       <div className="about-text">
-        <p className="about-welcome-text"> Welcome to Winc Events!</p>
-        <Text fontSize="1.1rem" mt="1.5rem">
-          We are a visionary event management company that hosts a variety of
-          exciting experiences for everyone!{" "}
-        </Text>
-        <Text>
-          <br></br>
-          From thrilling bungee jumping and hiking adventures to laid-back
-          brunch events, we have something for all tastes and preferences.{" "}
-        </Text>
-        <p>
-          Our events cater to families, groups of friends, and corporate teams,
-          providing unforgettable experiences that are sure to create lasting
-          memories. With Winc Events, you can be sure that you will always find
-          an exciting event to participate in, no matter what your interests
-          are.{" "}
-        </p>
-        <Text fontSize="1.5rem">
-          <br></br>Join us and let us make every moment count!
+        <Heading className="about-welcome-text">
+          {" "}
+          Welcome to Winc Events!
+        </Heading>
+        <Text lineHeight={7} fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)">
+          <Text mt="1.5rem">
+            We are a visionary event management company that hosts a variety of
+            exciting experiences for everyone!{" "}
+          </Text>
+          <Text>
+            <br></br>
+            From thrilling bungee jumping and hiking adventures to laid-back
+            brunch events, we have something for all tastes and preferences.{" "}
+          </Text>
+          <p>
+            Our events cater to families, groups of friends, and corporate
+            teams, providing unforgettable experiences that are sure to create
+            lasting memories. With Winc Events, you can be sure that you will
+            always find an exciting event to participate in, no matter what your
+            interests are.{" "}
+          </p>
+          <Heading fontSize="1.5rem">
+            <br></br>Join us and let us make every moment count!
+          </Heading>
         </Text>
         <div className="about-salesbox">
           <Heading>The World is waiting.</Heading>{" "}
           <Heading>Where are you?</Heading>
-          <Link to="/">
+          <Link to="/events">
             <Button mt="2rem" colorScheme="gray" color="green">
               Book our Events
             </Button>
