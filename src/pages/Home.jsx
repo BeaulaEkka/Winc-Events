@@ -103,7 +103,13 @@ const Home = () => {
           </Box>
 
           {isTextBoxVisible && (
-            <Box p={{ base: "10%", md: "12%", lg: "13%" }} bg="gray.50">
+            <Box
+              pt="4rem"
+              pb="4rem"
+              pr={{ base: "10%", md: "12%", lg: "13%" }}
+              pl={{ base: "10%", md: "12%", lg: "13%" }}
+              bg="gray.50"
+            >
               <Text
                 lineHeight={7}
                 fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
@@ -176,7 +182,13 @@ const Home = () => {
             </Flex>
           </Box>
           {isTextBoxVisible2 && (
-            <Box p={{ base: "10%", md: "12%", lg: "13%" }} bg="gray.50">
+            <Box
+              pt="4rem"
+              pb="4rem"
+              pr={{ base: "10%", md: "12%", lg: "13%" }}
+              pl={{ base: "10%", md: "12%", lg: "13%" }}
+              bg="gray.50"
+            >
               <Text
                 lineHeight={7}
                 fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
@@ -250,7 +262,13 @@ const Home = () => {
             </Flex>
           </Box>
           {isTextBoxVisible3 && (
-            <Box p={{ base: "10%", md: "12%", lg: "13%" }} bg="gray.50">
+            <Box
+              bg="gray.50"
+              pt="4rem"
+              pb="4rem"
+              pr={{ base: "10%", md: "12%", lg: "13%" }}
+              pl={{ base: "10%", md: "12%", lg: "13%" }}
+            >
               <Text
                 lineHeight={7}
                 fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
@@ -319,7 +337,13 @@ const Home = () => {
             </Flex>
           </Box>
           {isTextBoxVisible4 && (
-            <Box p={{ base: "9%", md: "11%", lg: "15%" }} bg="gray.50">
+            <Box
+              pt="4rem"
+              pb="4rem"
+              pr={{ base: "10%", md: "12%", lg: "13%" }}
+              pl={{ base: "10%", md: "12%", lg: "13%" }}
+              bg="gray.50"
+            >
               <Text
                 lineHeight={7}
                 fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"

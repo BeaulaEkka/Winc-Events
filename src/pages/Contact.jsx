@@ -20,20 +20,22 @@ const Contact = () => {
         >
           Address: Blue Street 123 <Text>1234 AB Mocktown</Text>
           <Text>The Netherlands</Text>
-          <Heading mt="2rem">Contact :</Heading>{" "}
+          <Heading mt="2rem" color="black">
+            Contact :
+          </Heading>{" "}
           <Text color="gray.600">
             <Text mt="2rem">+31 (0)12 34 56 789</Text>
             info@mockwebsite.nl <Text> VAT number NL: 1234.56.789.B01 </Text>
             Chamber of Commerce (KvK) <Text>Mocktown 9876XC</Text>
           </Text>
-          <Heading mt="2rem">
+          <Heading mt="2rem" color="black">
             Join us and let us make every moment count!
           </Heading>
         </Text>
         <div className="about-salesbox">
           <Heading>The World is waiting.</Heading>{" "}
           <Heading>Where are you?</Heading>
-          <Link to="/">
+          <Link to="/events">
             <Button mt="2rem" colorScheme="gray" color="green">
               Book our Events
             </Button>
