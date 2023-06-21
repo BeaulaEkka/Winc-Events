@@ -1,4 +1,4 @@
-import { Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
@@ -11,27 +11,55 @@ const Contact = () => {
         ></img>
       </div>
       <div className="about-text">
-        <Heading className="about-welcome-text"> Contact Information</Heading>
-        <Text
-          mt="1.5rem"
-          color="gray.600"
-          lineHeight={7}
-          fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
+        <Flex
+          flexDirection={["column", "row"]}
+          flexWrap="wrap"
+          justifyContent={"space-between"}
+          gap={"2rem"}
         >
-          Address: Blue Street 123 <Text>1234 AB Mocktown</Text>
-          <Text>The Netherlands</Text>
-          <Heading mt="2rem" color="black">
-            Contact :
-          </Heading>{" "}
-          <Text color="gray.600">
-            <Text mt="2rem">+31 (0)12 34 56 789</Text>
-            info@mockwebsite.nl <Text> VAT number NL: 1234.56.789.B01 </Text>
-            Chamber of Commerce (KvK) <Text>Mocktown 9876XC</Text>
-          </Text>
-          <Heading mt="2rem" color="black">
-            Join us and let us make every moment count!
-          </Heading>
-        </Text>
+          <Box>
+            <Heading className="about-welcome-text"> Adress</Heading>
+            <Text
+              mt="1rem"
+              color="gray.600"
+              lineHeight={7}
+              fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
+            >
+              Address: Blue Street 123 <Text>1234 AB Mocktown</Text>
+              <Text>The Netherlands</Text>
+            </Text>
+          </Box>
+
+          <Box>
+            <Heading color="black">Contact</Heading>{" "}
+            <Text
+              color="gray.600"
+              lineHeight={7}
+              fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
+            >
+              <Text mt="1rem">+31 (0)12 34 56 789</Text>
+              info@mockwebsite.nl
+              <Text>Mocktown 9876XC</Text>
+            </Text>
+          </Box>
+
+          <Box>
+            <Heading color="black">Info</Heading>{" "}
+            <Text
+              color="gray.600"
+              lineHeight={7}
+              fontSize="clamp(1rem, 0.95rem + 0.25vw, 1.25rem)"
+            >
+              <Text mt="1rem">Chamber of Commerce (KvK) </Text>
+              <Text> VAT number NL: 1234.56.789.B01 </Text>
+            </Text>
+          </Box>
+        </Flex>
+
+        <Heading mt="5rem" color="black">
+          Join us and let us make every moment count!
+        </Heading>
+
         <div className="about-salesbox">
           <Heading>The World is waiting.</Heading>{" "}
           <Heading>Where are you?</Heading>

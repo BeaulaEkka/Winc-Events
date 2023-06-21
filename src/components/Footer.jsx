@@ -10,7 +10,7 @@ export default function Footer() {
     <div className="footer">
       <div className="footer-content">
         <div className="logo" onClick={scrollToTop}>
-          <Image src="/assets/wincsvglogo.svg" w="20%" m="auto" pb=".5rem" />
+          <Image src="/assets/wincsvglogo.svg" w="6rem" m="auto" pb=".5rem" />
         </div>
 
         <Text fontSize="sm">All Rights Reserved 2023</Text>
