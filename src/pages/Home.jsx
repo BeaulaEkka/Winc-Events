@@ -28,8 +28,8 @@ const Home = () => {
       <Box position="relative" h="100vh">
         <div className="home-hero">
           <img
-            src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt="music festival"
+            src="https://images.pexels.com/photos/1936954/pexels-photo-1936954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="balloons"
           ></img>
         </div>
 

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import { Skeleton, useDisclosure, useToast } from "@chakra-ui/react";
 import {
   Card,
@@ -19,41 +20,44 @@ import {
 } from "react-router-dom";
 import AddNewEventModal from "../components/AddNewEventModal";
 import { useState } from "react";
-import { Suspense } from "react";
 import moment from "moment/moment";
-
-const LazyFilter = React.lazy(() => import("../components/Filter"));
+import Filter from "../components/Filter";
 
 // export const loader = async () => {
 //   const baseUrl = "https://mock-winc-events.onrender.com";
 //   const eventsUrl = new URL("/events", baseUrl);
 //   const categoriesUrl = new URL("/categories", baseUrl);
 
-//   const eventsResponse = await fetch(eventsUrl);
-//   const categoriesResponse = await fetch(categoriesUrl);
+//   const [eventsResponse, categoriesResponse] = await Promise.all([
+//     fetch(eventsUrl),
+//     fetch(categoriesUrl),
+//   ]);
 
 //   const events = await eventsResponse.json();
 //   const categories = await categoriesResponse.json();
 
 //   return { events, categories };
 // };
-
 export const loader = async () => {
-  const baseUrl = "https://mock-winc-events.onrender.com";
-  const eventsUrl = new URL("/events", baseUrl);
-  const categoriesUrl = new URL("/categories", baseUrl);
+  try {
+    const baseUrl = "https://mock-winc-events.onrender.com";
+    const eventsUrl = new URL("/events", baseUrl);
+    const categoriesUrl = new URL("/categories", baseUrl);
 
-  const [eventsResponse, categoriesResponse] = await Promise.all([
-    fetch(eventsUrl),
-    fetch(categoriesUrl),
-  ]);
+    const [eventsResponse, categoriesResponse] = await Promise.all([
+      fetch(eventsUrl),
+      fetch(categoriesUrl),
+    ]);
 
-  const events = await eventsResponse.json();
-  const categories = await categoriesResponse.json();
+    const events = await eventsResponse.json();
+    const categories = await categoriesResponse.json();
 
-  return { events, categories };
+    return { events, categories };
+  } catch (error) {
+    console.error(`Error fetching data: ${error}`);
+    throw error;
+  }
 };
-
 export const EventsPage = () => {
   const { events, categories } = useLoaderData();
   const navigate = useNavigate();
@@ -132,13 +136,11 @@ export const EventsPage = () => {
         List of Events
       </Heading>
       <div className="filter-nav">
-        <Suspense fallback={<div>Loading Filter...</div>}>
-          <LazyFilter
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            setsearchParams={setsearchParams}
-          />
-        </Suspense>
+        <Filter
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          setsearchParams={setsearchParams}
+        />
       </div>
       <Button
         mt="2rem"
