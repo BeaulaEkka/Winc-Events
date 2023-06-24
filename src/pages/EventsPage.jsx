@@ -186,7 +186,6 @@ export const EventsPage = () => {
                         mt="1.5rem"
                         transition="transform .2s ease-out"
                         _hover={{ transform: "scale(1.05)" }}
-                        border={"1px solid red"}
                       >
                         <div className="eventspage-card-images">
                           <Image
