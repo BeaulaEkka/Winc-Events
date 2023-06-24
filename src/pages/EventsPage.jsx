@@ -1,5 +1,3 @@
-"use client";
-
 import { Skeleton, useDisclosure, useToast } from "@chakra-ui/react";
 import {
   Card,
