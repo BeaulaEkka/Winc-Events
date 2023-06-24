@@ -131,27 +131,26 @@ export const EventsPage = () => {
 
   return (
     <div style={{ maxWidth: "80%", margin: "0 auto" }}>
+      <Heading mt="2rem" ml="3%" color="blue.500">
+        List of Events
+      </Heading>
+
+      <div className="filter-nav">
+        <Filter
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          setsearchParams={setsearchParams}
+        />
+      </div>
+      <Button
+        mt="2rem"
+        colorScheme="blue"
+        onClick={onOpen}
+        className="add-new-event-button"
+      >
+        Add New Event
+      </Button>
       <Suspense fallback={<h2>Loading...</h2>}>
-        <Heading mt="2rem" ml="3%" color="blue.500">
-          List of Events
-        </Heading>
-
-        <div className="filter-nav">
-          <Filter
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            setsearchParams={setsearchParams}
-          />
-        </div>
-        <Button
-          mt="2rem"
-          colorScheme="blue"
-          onClick={onOpen}
-          className="add-new-event-button"
-        >
-          Add New Event
-        </Button>
-
         <Flex flexWrap="wrap" justifyContent="center">
           {filteredEvents
             .filter(
@@ -162,6 +161,7 @@ export const EventsPage = () => {
                   .toLowerCase()
                   .includes(searchValue.toLowerCase())
             )
+
             .map((event) => (
               <Box
                 key={event.id}
@@ -235,13 +235,12 @@ export const EventsPage = () => {
               </Box>
             ))}
         </Flex>
-
-        <AddNewEventModal
-          handleCreate={handleCreate}
-          isOpen={isOpen}
-          onClose={onClose}
-        />
       </Suspense>
+      <AddNewEventModal
+        handleCreate={handleCreate}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </div>
   );
 };
