@@ -107,8 +107,8 @@
 }
 .about-hero {
   background-color: #48bb78;
-  -webkit-clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
-  clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
+  -webkit-clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 66%, 0 0);
+  clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 66%, 0 0);
 }
 .eventpage-container {
   width: 100%;
@@ -120,8 +120,8 @@
   width: 100%;
   background-color: #48bb78;
   object-position: bottom top;
-  -webkit-clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
-  clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
+  -webkit-clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 66%, 0 0);
+  clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 66%, 0 0);
 }
 .event-page-hero img {
   width: 100%;
@@ -175,8 +175,8 @@
   overflow: hidden;
   border-radius: 0.5rem;
   background-color: #48bb78;
-  -webkit-clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
-  clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
+  -webkit-clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 66%, 0 0);
+  clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 66%, 0 0);
 }
 .eventspage-card-images {
   -webkit-clip-path: polygon(0 1%, 100% 0%, 100% 90%, 0% 100%);
@@ -192,6 +192,7 @@
 
 .home-hero img {
   background-color: #48bb78;
+  -webkit-clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
   clip-path: polygon(100% 0, 100% 74%, 10% 90%, 0 76%, 0 0);
   width: 100vw;
   height: 100vh;
