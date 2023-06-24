@@ -137,116 +137,107 @@ export const EventsPage = () => {
         <Heading mt="2rem" ml="3%" color="blue.500">
           List of Events
         </Heading>
-        <Suspense fallback={<h2>Loading...</h2>}>
-          <div className="filter-nav">
-            <Filter
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
-              setsearchParams={setsearchParams}
-            />
-          </div>
-          <Button
-            mt="2rem"
-            colorScheme="blue"
-            onClick={onOpen}
-            className="add-new-event-button"
-          >
-            Add New Event
-          </Button>
-        </Suspense>
-        <Suspense fallback={<h2>Loading...</h2>}>
-          <Flex flexWrap="wrap" justifyContent="center">
-            {filteredEvents
-              .filter(
-                (event) =>
-                  searchValue.toLowerCase() === "" ||
-                  Object.values(event)
-                    .join("")
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase())
-              )
-              .map((event) => (
-                <Box
-                  key={event.id}
-                  width={{
-                    base: "100%",
 
-                    md: "46%",
-                    lg: "40%",
-                    xl: "30%",
-                    "2xl": "30%",
-                  }}
-                  m={2}
-                >
-                  <Link to={`event/${event.id}`}>
-                    <Suspense fallback={<h2>Loading...</h2>}>
-                      <Card
-                        type="outline"
-                        borderRadius="lg"
-                        mt="1.5rem"
-                        transition="transform .2s ease-out"
-                        _hover={{ transform: "scale(1.05)" }}
-                      >
-                        <div className="eventspage-card-images">
-                          <Image
-                            w="100%"
-                            h="350px"
-                            src={event.image}
-                            alt={event.title}
-                            fit="cover"
-                            overflow="hidden"
-                            borderTopRadius="lg"
-                          />
-                        </div>
-                        <Stack p={4}>
-                          <Heading size="md">{event.title}</Heading>
-                          <Text>{event.description}</Text>
-                          <Text color="gray.500">Start Time:</Text>
-                          <Text>
-                            {moment(event.startTime).format(
-                              "MMM Do YYYY, h:mm a"
-                            )}
-                          </Text>
-                          <Text color="gray.500">End Time:</Text>
-                          <Text>
-                            {moment(event.startTime).format(
-                              "MMM Do YYYY, h:mm a"
-                            )}
-                          </Text>
-                          <Text color="gray.500">Location :</Text>
-                          <Text>{event.location}</Text>
+        <div className="filter-nav">
+          <Filter
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            setsearchParams={setsearchParams}
+          />
+        </div>
+        <Button
+          mt="2rem"
+          colorScheme="blue"
+          onClick={onOpen}
+          className="add-new-event-button"
+        >
+          Add New Event
+        </Button>
 
-                          <Text>
-                            {categories
-                              .filter(
-                                (category) =>
-                                  event.categoryIds &&
-                                  event.categoryIds.includes(category.id)
-                              )
-                              .map((category) => (
-                                <Tag
-                                  size="lg"
-                                  colorScheme={
-                                    category.name === "sports"
-                                      ? "green"
-                                      : "blue"
-                                  }
-                                  variant="solid"
-                                  key={category.id}
-                                  mr=".5rem"
-                                >
-                                  {category.name}
-                                </Tag>
-                              ))}
-                          </Text>
-                        </Stack>
-                      </Card>
-                    </Suspense>
-                  </Link>
-                </Box>
-              ))}
-          </Flex>
-        </Suspense>
+        <Flex flexWrap="wrap" justifyContent="center">
+          {filteredEvents
+            .filter(
+              (event) =>
+                searchValue.toLowerCase() === "" ||
+                Object.values(event)
+                  .join("")
+                  .toLowerCase()
+                  .includes(searchValue.toLowerCase())
+            )
+            .map((event) => (
+              <Box
+                key={event.id}
+                width={{
+                  base: "100%",
+
+                  md: "46%",
+                  lg: "40%",
+                  xl: "30%",
+                  "2xl": "30%",
+                }}
+                m={2}
+              >
+                <Link to={`event/${event.id}`}>
+                  <Card
+                    type="outline"
+                    borderRadius="lg"
+                    mt="1.5rem"
+                    transition="transform .2s ease-out"
+                    _hover={{ transform: "scale(1.05)" }}
+                  >
+                    <div className="eventspage-card-images">
+                      <Image
+                        w="100%"
+                        h="350px"
+                        src={event.image}
+                        alt={event.title}
+                        fit="cover"
+                        overflow="hidden"
+                        borderTopRadius="lg"
+                      />
+                    </div>
+                    <Stack p={4}>
+                      <Heading size="md">{event.title}</Heading>
+                      <Text>{event.description}</Text>
+                      <Text color="gray.500">Start Time:</Text>
+                      <Text>
+                        {moment(event.startTime).format("MMM Do YYYY, h:mm a")}
+                      </Text>
+                      <Text color="gray.500">End Time:</Text>
+                      <Text>
+                        {moment(event.startTime).format("MMM Do YYYY, h:mm a")}
+                      </Text>
+                      <Text color="gray.500">Location :</Text>
+                      <Text>{event.location}</Text>
+
+                      <Text>
+                        {categories
+                          .filter(
+                            (category) =>
+                              event.categoryIds &&
+                              event.categoryIds.includes(category.id)
+                          )
+                          .map((category) => (
+                            <Tag
+                              size="lg"
+                              colorScheme={
+                                category.name === "sports" ? "green" : "blue"
+                              }
+                              variant="solid"
+                              key={category.id}
+                              mr=".5rem"
+                            >
+                              {category.name}
+                            </Tag>
+                          ))}
+                      </Text>
+                    </Stack>
+                  </Card>
+                </Link>
+              </Box>
+            ))}
+        </Flex>
+
         <AddNewEventModal
           handleCreate={handleCreate}
           isOpen={isOpen}
