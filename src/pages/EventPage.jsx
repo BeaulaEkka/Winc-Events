@@ -9,22 +9,48 @@ import AlertBox from "../components/AlertBox";
 import EditEventModal from "../components/EditEventModal";
 import moment from "moment";
 
+// export const loader = async ({ params }) => {
+//   const event = await fetch(
+//     `https://mock-winc-events.onrender.com/events/${params.eventId}`
+//   );
+
+//   const users = await fetch("https://mock-winc-events.onrender.com/users");
+
+//   const categories = await fetch(
+//     "https://mock-winc-events.onrender.com/categories"
+//   );
+
+//   return {
+//     event: await event.json(),
+//     users: await users.json(),
+//     categories: await categories.json(),
+//   };
+// };
 export const loader = async ({ params }) => {
-  const event = await fetch(
-    `https://mock-winc-events.onrender.com/events/${params.eventId}`
-  );
+  try {
+    // Fetch data from events.json
+    const eventsResponse = await fetch("/src/data/events.json"); // Adjust path if needed
+    const data = await eventsResponse.json();
 
-  const users = await fetch("https://mock-winc-events.onrender.com/users");
+    // Find the requested event based on ID
+    const event = data.events.find(
+      (event) => event.id === parseInt(params.eventId)
+    );
 
-  const categories = await fetch(
-    "https://mock-winc-events.onrender.com/categories"
-  );
+    // Extract users and categories (assuming they are arrays in events.json)
+    const users = data.users || []; // Use an empty array if users data is missing
+    const categories = data.categories || []; // Use an empty array if categories data is missing
 
-  return {
-    event: await event.json(),
-    users: await users.json(),
-    categories: await categories.json(),
-  };
+    // Check if event exists
+    if (!event) {
+      throw new Error(`Event with ID ${params.eventId} not found`);
+    }
+
+    return { event, users, categories };
+  } catch (error) {
+    console.error(`Error fetching data: ${error}`);
+    throw error; // Re-throw the error for handling in the component
+  }
 };
 
 export const EventPage = () => {

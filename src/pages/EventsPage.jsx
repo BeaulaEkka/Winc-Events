@@ -23,23 +23,38 @@ import Filter from "../components/Filter";
 import { Suspense } from "react";
 import AlbumGlimmer from "../components/AlbumGlimmer";
 
+// export const loader = async () => {
+//   try {
+//     const baseUrl = "https://mock-winc-events.onrender.com";
+//     const eventsUrl = new URL("/events", baseUrl);
+//     const categoriesUrl = new URL("/categories", baseUrl);
+
+//     const [eventsResponse, categoriesResponse] = await Promise.all([
+//       fetch(eventsUrl),
+//       fetch(categoriesUrl),
+//     ]);
+
+//     const events = await eventsResponse.json();
+//     const categories = await categoriesResponse.json();
+
+//     return { events, categories };
+//   } catch (error) {
+//     console.error(`Error fetching data: ${error}`);
+//     throw error;
+//   }
+// };
+
 export const loader = async () => {
   try {
-    const baseUrl = "https://mock-winc-events.onrender.com";
-    const eventsUrl = new URL("/events", baseUrl);
-    const categoriesUrl = new URL("/categories", baseUrl);
+    const eventsResponse = await fetch("/src/data/events.json");
+    const data = await eventsResponse.json();
 
-    const [eventsResponse, categoriesResponse] = await Promise.all([
-      fetch(eventsUrl),
-      fetch(categoriesUrl),
-    ]);
-
-    const events = await eventsResponse.json();
-    const categories = await categoriesResponse.json();
+    const events = data.events;
+    const categories = data.categories;
 
     return { events, categories };
   } catch (error) {
-    console.error(`Error fetching data: ${error}`);
+    console.error(`Error fetching data from local file: ${error}`);
     throw error;
   }
 };
@@ -116,7 +131,7 @@ export const EventsPage = () => {
   }
 
   return (
-    <div style={{ maxWidth: "80%", margin: "0 auto" }}>
+    <div style={{ maxWidth: "75%", margin: "0 auto" }}>
       <Heading mt="2rem" ml="3%" color="blue.500">
         List of Events
       </Heading>
@@ -153,11 +168,10 @@ export const EventsPage = () => {
                   key={event.id}
                   width={{
                     base: "100%",
-
-                    md: "46%",
-                    lg: "40%",
-                    xl: "30%",
-                    "2xl": "30%",
+                    md: "40%",
+                    lg: "30%",
+                    xl: "20%",
+                    "2xl": "20%",
                   }}
                   m={2}
                 >
