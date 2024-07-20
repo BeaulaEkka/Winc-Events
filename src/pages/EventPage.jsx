@@ -29,7 +29,7 @@ import moment from "moment";
 export const loader = async ({ params }) => {
   try {
     // Fetch data from events.json
-    const eventsResponse = await fetch("/src/data/events.json"); // Adjust path if needed
+    const eventsResponse = await fetch("/data/events.json"); // Adjust path if needed
     const data = await eventsResponse.json();
 
     // Find the requested event based on ID
