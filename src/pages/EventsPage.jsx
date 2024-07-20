@@ -46,7 +46,11 @@ import AlbumGlimmer from "../components/AlbumGlimmer";
 
 export const loader = async () => {
   try {
-    const eventsResponse = await fetch("src/data/events.json");
+    const eventsResponse = await fetch("/data/events.json"); // Adjusted path
+    if (!eventsResponse.ok) {
+      throw new Error(`HTTP error! status: ${eventsResponse.status}`);
+    }
+
     const data = await eventsResponse.json();
 
     const events = data.events;
